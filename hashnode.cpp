@@ -1,5 +1,5 @@
 
-// Hash node 
+// Hash node
 template <typename K, typename V>
 class HashNode {
 public:
@@ -34,4 +34,3 @@ private:
     // next bucket with the same key
     HashNode *next;
 };
-view rawHashNode.h hosted with ❤ by GitHub
