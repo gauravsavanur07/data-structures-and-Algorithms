@@ -3,10 +3,16 @@ G Savanur
 HeapSort.java
 4/7/18
 */
+<<<<<<< HEAD
 import java.util.*;
 public class HeapSort{
 
 private Heap{
+=======
+public class HeapSort{
+  private Heap() { }
+
+>>>>>>> 09844c20b47993a406ea105843a05d6e9f94c6cb
       /**
        * Rearranges the array in ascending order, using the natural order.
        * @param pq the array to be sorted
@@ -69,7 +75,11 @@ private Heap{
       }
 
 
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> 09844c20b47993a406ea105843a05d6e9f94c6cb
 
 
 
