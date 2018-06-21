@@ -1,6 +1,4 @@
-  // print keys
-        for (String s : st.keys())
-            Stpublic class LinearProbingHashST<Key, Value> {
+public class LinearProbingHashST<Key, Value> {
     private static final int INIT_CAPACITY = 4;
 
     private int n;           // number of key-value pairs in the symbol table
