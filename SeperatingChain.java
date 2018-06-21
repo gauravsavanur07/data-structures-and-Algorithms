@@ -11,7 +11,7 @@ public class SeparateChainingHashST<Key, Value> {
      */
     public SeparateChainingHashST() {
         this(INIT_CAPACITY);
-    } 
+    }
 
     /**
      * Initializes an empty symbol table with {@code m} chains.
@@ -22,7 +22,7 @@ public class SeparateChainingHashST<Key, Value> {
         st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[m];
         for (int i = 0; i < m; i++)
             st[i] = new SequentialSearchST<Key, Value>();
-    } 
+    }
 
     // resize the hash table to have the given number of chains,
     // rehashing all of the keys
@@ -41,7 +41,7 @@ public class SeparateChainingHashST<Key, Value> {
     // hash value between 0 and m-1
     private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % m;
-    } 
+    }
 
     /**
      * Returns the number of key-value pairs in this symbol table.
@@ -50,7 +50,7 @@ public class SeparateChainingHashST<Key, Value> {
      */
     public int size() {
         return n;
-    } 
+    }
 
     /**
      * Returns true if this symbol table is empty.
@@ -73,7 +73,7 @@ public class SeparateChainingHashST<Key, Value> {
     public boolean contains(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to contains() is null");
         return get(key) != null;
-    } 
+    }
 
     /**
      * Returns the value associated with the specified key in this symbol table.
@@ -87,10 +87,10 @@ public class SeparateChainingHashST<Key, Value> {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         int i = hash(key);
         return st[i].get(key);
-    } 
+    }
 
     /**
-     * Inserts the specified key-value pair into the symbol table, overwriting the old 
+     * Inserts the specified key-value pair into the symbol table, overwriting the old
      * value with the new value if the symbol table already contains the specified key.
      * Deletes the specified key (and its associated value) from this symbol table
      * if the specified value is {@code null}.
@@ -112,11 +112,11 @@ public class SeparateChainingHashST<Key, Value> {
         int i = hash(key);
         if (!st[i].contains(key)) n++;
         st[i].put(key, val);
-    } 
+    }
 
     /**
-     * Removes the specified key and its associated value from this symbol table     
-     * (if the key is in this symbol table).    
+     * Removes the specified key and its associated value from this symbol table
+     * (if the key is in this symbol table).
      *
      * @param  key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
@@ -130,7 +130,7 @@ public class SeparateChainingHashST<Key, Value> {
 
         // halve table size if average length of list <= 2
         if (m > INIT_CAPACITY && n <= 2*m) resize(m/2);
-    } 
+    }
 
     // return keys in symbol table as an Iterable
     public Iterable<Key> keys() {
@@ -140,7 +140,7 @@ public class SeparateChainingHashST<Key, Value> {
                 queue.enqueue(key);
         }
         return queue;
-    } 
+    }
 
 
     /**
@@ -148,7 +148,7 @@ public class SeparateChainingHashST<Key, Value> {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
         SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<String, Integer>();
         for (int i = 0; !StdIn.isEmpty(); i++) {
             String key = StdIn.readString();
@@ -156,10 +156,9 @@ public class SeparateChainingHashST<Key, Value> {
         }
 
         // print keys
-        for (String s : st.keys()) 
-            StdOut.println(s + " " + st.get(s)); 
+        for (String s : st.keys())
+            StdOut.println(s + " " + st.get(s));
 
     }
 
 }
-
